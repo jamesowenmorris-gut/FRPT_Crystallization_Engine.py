@@ -46,3 +46,13 @@ class FRPTSensitivityEngine:
 if __name__ == "__main__":
     engine = FRPTSensitivityEngine()
     engine.run_big_bang_simulation()
+def verify_stability(runs=10):
+    results = []
+    for _ in range(runs):
+        g = nx.barabasi_albert_graph(500, m=3)
+        ds, alpha = engine.calculate_alpha_and_dim(g)
+        results.append((ds, alpha))
+    
+    # Calculate Mean and Std Deviation
+    ds_vals = [r[0] for r in results]
+    print(f"Mean Spectral Dim: {np.mean(ds_vals):.4f} +/- {np.std(ds_vals):.4f}")
