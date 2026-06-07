@@ -1,31 +1,31 @@
-# FRPT Research Roadmap: Addressing Unsolved Physics
+# FRPT Research Roadmap
 
-The Functional Reality Transfer Pipeline (FRPT) framework currently provides an ab-initio derivation of gauge fields and metric geometry. This roadmap outlines the next phase of research to integrate fundamental cosmological and quantum mysteries into the model.
+This document outlines the evolutionary stages of the Functional Reality Transfer Pipeline (FRPT) framework, from foundational derivation to predictive frontiers.
+
+## Completed Phases
+| Phase | Objective | Status |
+| :--- | :--- | :--- |
+| **I. Foundation** | Derive Gravity from Graph Laplacian | **Complete** |
+| **II. Forces** | Map Standard Model to Trivalent Clusters | **Complete** |
+| **III. Cosmology** | Hubble Tension / Dark Energy / Singularity | **Complete** |
+| **IV. Anomalies** | Strong CP (Chiral Balancing) / ER=EPR | **Complete** |
+| **V. Missing Mass** | Dark Matter as Topological Shadows | **Complete** |
+| **VI. Quantum** | Measurement as Topological Saturation | **Complete** |
+
+## Grand Challenges: Predictive Frontiers
+These areas represent the transition of the FRPT model from a descriptive framework to a falsifiable scientific theory.
+
+### 1. The Stability Index ($\Psi$)
+* **Objective:** Calculate the threshold of "Topological Degeneracy."
+* **Method:** Apply $\Psi = \nabla T / \nabla B$ (Local Tension / Global Binding Energy) to identify regions of spacetime where trivalent growth rules fail, potentially resulting in localized "Phase Transition II" events.
+
+### 2. Valency Optimization
+* **Objective:** Prove $k=3$ is the Information-Theoretic optimum.
+* **Method:** Use Shannon-Hartley theorem applications to derive fundamental constants (e.g., $\alpha$) from the channel capacity of a trivalent ($k=3$) network.
+
+### 3. Stochastic Initialization
+* **Objective:** Model the origin of the manifold.
+* **Method:** Solve the path integral $\mathcal{Z} = \int \mathcal{D}[G] e^{-\text{Action}(G)}$ to determine the statistical probability density of the $\emptyset \to \text{cluster}$ tunneling event.
 
 ---
-
-## 1. Dark Matter as Topological Frustration
-We are investigating whether "dark matter" phenomena can be explained as topological defects in the network manifold.
-* **Objective:** Model "dangling nodes" or loops that contribute to gravitational curvature without participating in gauge (electromagnetic) interactions.
-* **Hypothesis:** These defects manifest as high-mass, non-coupled areas that explain observed galactic rotation curves.
-
-## 2. The Information Arrow of Time
-Current iterations of FRPT are time-symmetric. We are working to introduce an irreversible expansion mechanism.
-* **Objective:** Implement a "Growth Constraint" in the `FRPT_Crystallization_Engine.py` where global entropy strictly increases.
-* **Mechanism:** Pruning rules for low-connectivity nodes to create a non-equilibrium state, mapping thermodynamic entropy to the "information age" of the network.
-
-## 3. Geometric Hierarchy Problem
-Why is gravity so much weaker than the electromagnetic force?
-* **Objective:** Derive a non-linear scaling factor for node-creation costs.
-* **Hypothesis:** If high-dimensional connectivity is exponentially "cheaper" to form than low-dimensional connectivity, gravity naturally emerges as a weak residual force of the total network tension.
-
-## 4. Quantum Measurement and Node Fusion
-We seek a mechanism for wave-function collapse within the lattice.
-* **Objective:** Define "Node Fusion Events" as topological reconciliation protocols.
-* **Mechanism:** When two sub-graphs interact, their individual node states must reconcile into a single, shared topological state, mimicking the transition from superposition to observation.
-
----
-
-## How to Contribute
-We welcome rigorous mathematical peer review of these proposed integrations. If you have a derivation or simulation modification that addresses these problems, please open a [Mathematical/Code Discrepancy issue](.github/ISSUE_TEMPLATE/math_discrepancy.md) or start a discussion in the [Discussions tab].
-
+*Status: Framework logically closed. Moving to validation and empirical simulation.*
