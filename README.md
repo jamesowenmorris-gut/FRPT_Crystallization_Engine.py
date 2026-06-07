@@ -33,3 +33,9 @@ The framework is operationalized through the `Crystallization_Engine`, which enf
 The FRPT framework is now a logically closed, internally consistent Theory of Everything. Every mechanism—from the Big Bang to the mechanics of quantum collapse—has been mapped to the underlying graph-logic of the system.
 
 This repository serves as the official archive for the FRPT framework. It is intended for theoretical physicists, network theorists, and researchers interested in emergent gravity and information-based cosmology.
+
+## Theoretical Limitations and Unanswered Frontiers
+While the FRPT framework provides a complete operational model for emergent gravity, forces, and quantum phenomena, it assumes three foundational premises:
+1. **The Ontological Source:** The framework describes the *function* of the manifold but does not describe the origin of the trivalent logic itself.
+2. **Fundamental Indeterminism:** The stochastic nature of manifold initialization is treated as a primitive; the potential for a deeper, deterministic sub-layer is acknowledged but remains unmodeled.
+3. **The Information Constant:** The specific value of $N_{crit}$ (the information budget) is treated as an empirical observation of our manifold’s constraints, rather than a derived constant.
