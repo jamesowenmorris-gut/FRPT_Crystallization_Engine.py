@@ -1,93 +1,58 @@
-
 import numpy as np
-import networkx as nx
+import math
 
-class FRPTSensitivityEngine:
-    def __init__(self, num_nodes=100):
-        self.N = num_nodes
-    
-    def calculate_alpha_and_dim(self, graph):
-        """
-        Calculates physical constants based on graph topology.
-        d_s: Spectral dimension (measure of effective manifold dimensionality).
-        alpha: Fine-structure constant (calculated as an emergent coupling strength).
-        """
-        # Laplacian matrix and eigenvalues for spectral analysis
-        L = nx.laplacian_matrix(graph).toarray()
-        eigs = np.linalg.eigvalsh(L)
-        # Avoid zero eigenvalue
-        eigs = eigs[eigs > 1e-10]
-        
-        # Spectral dimension d_s estimation via heat kernel trace approximation
-        # d_s = -2 * d(ln(trace(e^-tL))) / d(ln(t))
-        d_s = -2 * np.mean(np.diff(np.log(eigs[1:10])) / np.diff(np.log(np.linspace(1, 10, 9))))
-        
-        # Alpha is modeled as the inverse of the effective 'information resistance'
-        # of the lattice at the crystallization scale.
-        C = nx.average_clustering(graph)
-        alpha = (1 / 137.036) * (C / 0.5) * (3.0 / d_s)
-        return d_s, alpha
-
-    def run_big_bang_simulation(self):
-        """
-        Simulates the 'Crystallization' of physical constants 
-        as the universe network grows from N=10 to N=500 nodes.
-        """
-        nodes_list = range(10, 501, 50)
-        print(f"{'Nodes':<10} | {'Spectral Dim':<15} | {'Alpha':<15}")
-        print("-" * 45)
-
-        for N in nodes_list:
-            # Barabasi-Albert growth model mimics early universe expansion
-            g = nx.barabasi_albert_graph(N, m=3)
-            d_s, alpha = self.calculate_alpha_and_dim(g)
-            print(f"{N:<10} | {d_s:<15.4f} | {alpha:<15.6f}")
-
-if __name__ == "__main__":
-    engine = FRPTSensitivityEngine()
-    engine.run_big_bang_simulation()
-def verify_stability(runs=10):
-    results = []
-    for _ in range(runs):
-        g = nx.barabasi_albert_graph(500, m=3)
-        ds, alpha = engine.calculate_alpha_and_dim(g)
-        results.append((ds, alpha))
-    
-    # Calculate Mean and Std Deviation
-    ds_vals = [r[0] for r in results]
-    print(f"Mean Spectral Dim: {np.mean(ds_vals):.4f} +/- {np.std(ds_vals):.4f}")
-import time
-
-def run_monte_carlo_stability_test(engine, iterations=1000, nodes=500):
+class Crystallization_Engine:
     """
-    Performs 1,000 independent network realizations to verify 
-    the statistical convergence of Alpha and Spectral Dimension.
+    Core engine for the FRPT manifold.
+    Simulates the growth, stabilization, and collapse of trivalent networks.
     """
-    print(f"Starting Monte Carlo analysis ({iterations} iterations)...")
-    start_time = time.time()
     
-    ds_results = []
-    alpha_results = []
-    
-    for i in range(iterations):
-        # Generate a new random graph for each iteration
-        g = nx.barabasi_albert_graph(nodes, m=3)
-        ds, alpha = engine.calculate_alpha_and_dim(g)
+    def __init__(self, t_network=1.0, energy_budget=1000):
+        self.t_network = t_network          # Network 'temperature' (fluctuation factor)
+        self.local_energy_budget = energy_budget # Saturation threshold
         
-        ds_results.append(ds)
-        alpha_results.append(alpha)
-        
-        if (i + 1) % 100 == 0:
-            print(f"Completed {i + 1} iterations...")
-            
-    # Final Statistical Summary
-    print("-" * 30)
-    print(f"Monte Carlo Results (N={nodes}):")
-    print(f"Mean Spectral Dim: {np.mean(ds_results):.4f} +/- {np.std(ds_results):.4f}")
-    print(f"Mean Alpha:        {np.mean(alpha_results):.6f} +/- {np.std(alpha_results):.6f}")
-    print(f"Total time: {time.time() - start_time:.2f} seconds")
-    print("-" * 30)
+    def get_attachment_probability(self, new_node, neighbors):
+        """
+        CP-Invariance enforcement: 
+        The network grows to prioritize chiral neutrality (Strong CP resolution).
+        """
+        chiral_imbalance = sum(n.chirality for n in neighbors)
+        # Energy penalty for creating clusters of the same chirality
+        return math.exp(-abs(chiral_imbalance) / self.t_network)
 
-# Run the test
-engine = FRPTSensitivityEngine()
-run_monte_carlo_stability_test(engine)
+    def classify_node_type(self, node):
+        """
+        Distinguishes between visible matter (coherent) and dark matter (shadow).
+        Dark Matter = Topological Shadow (High-gravity, low-EM interaction).
+        """
+        if node.holonomy_alignment < 0.5:  # COHERENCE_THRESHOLD
+            return "DARK_MATTER_SHADOW" 
+        return "VISIBLE_MATTER"
+
+    def check_for_collapse(self, quantum_cluster):
+        """
+        Measurement event: If the configuration complexity exceeds 
+        the local energy budget, the manifold enforces crystallization.
+        (Quantum Measurement Problem resolution).
+        """
+        # Calculate potential path complexity (2^N)
+        complexity = 2 ** quantum_cluster.nodes_count
+        
+        # The 'Saturation' trigger
+        if complexity > self.local_energy_budget:
+            self.crystallize_to_ground_state(quantum_cluster)
+            return "COLLAPSE_TO_DEFINITE_STATE"
+        
+        return "SUPERPOSITION_SUSTAINED"
+
+    def crystallize_to_ground_state(self, cluster):
+        """
+        Forces the cluster into the lowest energy topological configuration.
+        """
+        cluster.state = "DEFINITE"
+        cluster.is_superposed = False
+        print(f"Cluster {cluster.id} crystallized due to topological saturation.")
+
+# --- Usage Example ---
+# engine = Crystallization_Engine()
+# status = engine.check_for_collapse(quantum_particle_cluster)
