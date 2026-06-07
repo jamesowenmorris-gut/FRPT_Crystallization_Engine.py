@@ -15,35 +15,19 @@ This repository contains the foundational research for the FRPT framework—an i
 - **[Simulation Engine](FRPT_Crystallization_Engine.py)**: Python implementation of the "Network Crystallization" hypothesis, demonstrating the convergence of the Fine-Structure Constant ($\alpha \approx 1/137.036$) and Spectral Dimension ($d_s \approx 3.0$).
 - **[Submission Dossier](cover_letter.pdf)**: Formal cover letter prepared for academic peer review.
 
-## Verification
-The `FRPT_Crystallization_Engine.py` includes a built-in Monte Carlo stability test (1,000 iterations). 
-To run:
-```bash
-python FRPT_Crystallization_Engine.py
+## Math Path: Formal Theoretical Framework
+For researchers interested in the analytical foundation of the FRPT, we provide a structured path through the mathematical proofs and action principles.
 
+### 1. Master Action Derivation
+The foundational premise is that the Universal Action $I_U$ is a functional of the network’s spectral density.
+- **Key Document**: [Formal Derivation PDF](frpt_full_derivation.pdf)
+- **Conceptual Focus**: See Section 2 (Emergence of Spacetime Geometry) regarding the Heat Kernel expansion of the discrete Graph Laplacian $L_G$ and its convergence to the Einstein-Hilbert action.
 
----
-name: Mathematical/Code Discrepancy
-about: Report an error in the FRPT derivation or simulation
-title: '[DISCREPANCY]'
-labels: bug, documentation
----
+### 2. Topological Coupling Constants
+We treat physical constants as invariants derived from the connectivity manifold.
+- **Focus**: See Section 4 (Topological Mass and Coupling).
+- **Core Proof**: The derivation of $\alpha$ as a function of trivalent connectivity density.
 
-**Which component is affected?**
-- [ ] Mathematical Derivation (PDF)
-- [ ] Simulation Engine (Python)
-- [ ] Logic/Assumptions
-
-**Description of the issue**
-Please provide a clear and concise description of what you believe is incorrect.
-
-**Steps to reproduce**
-If this is a code issue, provide the parameters or inputs that led to the unexpected result.
-
-**Mathematical Proof**
-If you are challenging a formula, please provide your derivation or reference to standard literature that contradicts the current FRPT model.
-
-**Expected result vs. Actual result**
-- What did the simulation/derivation suggest?
-- What do you believe the correct value should be?
-
+### 3. Convergence Proofs
+The analytical argument for why reality "crystallizes" into 3D:
+- **Spectral Analysis**: The Heat Kernel trace $Tr(e^{-t L_G})$ shows that as the network density $N$ increases, the system transitions from a fractal dimension to a smooth 3D manifold ($d_s \to 3$).
