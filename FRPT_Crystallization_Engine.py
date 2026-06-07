@@ -56,3 +56,38 @@ def verify_stability(runs=10):
     # Calculate Mean and Std Deviation
     ds_vals = [r[0] for r in results]
     print(f"Mean Spectral Dim: {np.mean(ds_vals):.4f} +/- {np.std(ds_vals):.4f}")
+import time
+
+def run_monte_carlo_stability_test(engine, iterations=1000, nodes=500):
+    """
+    Performs 1,000 independent network realizations to verify 
+    the statistical convergence of Alpha and Spectral Dimension.
+    """
+    print(f"Starting Monte Carlo analysis ({iterations} iterations)...")
+    start_time = time.time()
+    
+    ds_results = []
+    alpha_results = []
+    
+    for i in range(iterations):
+        # Generate a new random graph for each iteration
+        g = nx.barabasi_albert_graph(nodes, m=3)
+        ds, alpha = engine.calculate_alpha_and_dim(g)
+        
+        ds_results.append(ds)
+        alpha_results.append(alpha)
+        
+        if (i + 1) % 100 == 0:
+            print(f"Completed {i + 1} iterations...")
+            
+    # Final Statistical Summary
+    print("-" * 30)
+    print(f"Monte Carlo Results (N={nodes}):")
+    print(f"Mean Spectral Dim: {np.mean(ds_results):.4f} +/- {np.std(ds_results):.4f}")
+    print(f"Mean Alpha:        {np.mean(alpha_results):.6f} +/- {np.std(alpha_results):.6f}")
+    print(f"Total time: {time.time() - start_time:.2f} seconds")
+    print("-" * 30)
+
+# Run the test
+engine = FRPTSensitivityEngine()
+run_monte_carlo_stability_test(engine)
