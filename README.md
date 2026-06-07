@@ -48,3 +48,22 @@ $$d_s = -2 \frac{d \ln(\text{Tr}(e^{-t L_G}))}{d \ln(t)}$$
 ### 4. Gauge Coupling Stability
 The fine-structure constant $\alpha$ emerges as an invariant of the trivalent connectivity density:
 $$\alpha \approx \left( \frac{1}{137.036} \right) \cdot \left( \frac{\text{Clustering Coeff}}{0.5} \right) \cdot \left( \frac{3.0}{d_s} \right)$$
+
+
+### Force Unification Logic
+The FRPT model treats the four fundamental forces not as independent fields, but as **coupled topological tensions** within an evolving information manifold. We hypothesize that the laws of physics emerge as the optimal configurations required to maintain the manifold's structural stability.
+
+| Force | Graph Representation | Physical Role |
+| :--- | :--- | :--- |
+| **Gravity** | Manifold Curvature ($d_s$) | Sets the global scale and density of the network. |
+| **Electromagnetism** | Trivalent Holonomy | Acts as the "glue" maintaining trivalent connectivity stability. |
+| **Strong Force** | Tri-Cluster $SU(3)$ Bonding | Binds nodes into high-density clusters; ensures matter stability. |
+| **Weak Force** | Node Flavor Reconfiguration | Acts as a "topological thermostat" for curvature regulation. |
+
+#### The Curvature-Weak Force Feedback Loop
+Our framework posits that the Weak Force serves as the system's local regulator. We observe the following coupled dynamics:
+1.  **Density Thresholds**: When local gravitational curvature ($R$) exceeds a critical density, trivalent clusters become unstable.
+2.  **Topological Relief**: This instability triggers a Weak Force reconfiguration event, effectively "evaporating" excess energy density through node-state transitions.
+3.  **Self-Correction**: This process reduces local curvature, preventing the graph from collapsing into a singularity and maintaining the manifold's long-term equilibrium.
+
+
